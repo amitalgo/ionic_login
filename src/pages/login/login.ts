@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController, ToastController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController, ToastController,MenuController  } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service'
 import { ListPage } from '../../pages/list/list'
 import { HomePage} from '../../pages/home/home'
@@ -23,10 +23,12 @@ export class LoginPage {
   data:any;
   private todo : FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider,public loadingCtrl: LoadingController, private toastCtrl: ToastController,private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider,public loadingCtrl: LoadingController, private toastCtrl: ToastController,private formBuilder: FormBuilder,private menu: MenuController) {
+    this.menu.enable(false);
+
     this.todo = this.formBuilder.group({
       email: ['', Validators.required],
-      pass: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
@@ -39,7 +41,7 @@ export class LoginPage {
       this.navCtrl.setRoot(HomePage);
     }, (err) => {
       this.loading.dismiss();
-      this.presentToast(err.error.message);
+      this.presentToast(err.error.error);
     });
   }
 
