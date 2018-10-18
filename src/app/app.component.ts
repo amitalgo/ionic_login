@@ -33,6 +33,10 @@ export class MyApp {
     platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.pages = [
+      { title: 'Home', component: HomePage },
+      { title: 'List', component: ListPage }
+    ];
     });
   }
 

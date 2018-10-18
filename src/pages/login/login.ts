@@ -40,6 +40,7 @@ export class LoginPage {
       // localStorage.setItem('token', this.data.access_token);
       this.navCtrl.setRoot(HomePage);
     }, (err) => {
+      console.log(err);
       this.loading.dismiss();
       this.presentToast(err.error.error);
     });

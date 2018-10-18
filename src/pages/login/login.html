@@ -1,46 +1,42 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!-- <ion-header>
-
-  <ion-navbar>
-    <ion-title>Yii Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
- -->
-
-<ion-content>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-            <h4 text-center margin-top>SpartanSales Login</h4>
+<ion-content no-bounce padding style="background:url('assets/imgs/login_img.jpg') no-repeat fixed center;background-size:cover;" id="page1">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="header padding text-center">
+          <img class="logoApp" src="assets/imgs/logo.png" alt="SpartanSales" />
+        </div>
+        <ion-card>
+          <ion-card-header>
+            LOGIN
+          </ion-card-header>
+          <ion-card-content>
             <form [formGroup]="todo" (ngSubmit)="doLogin()">
-              <ion-item>
-                <ion-label floating>Username</ion-label>
-                <ion-input type="text" formControlName="email"></ion-input>
-              </ion-item>
-    
-              <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input formControlName="password" type="password"></ion-input>
-              </ion-item>
-    
-              <div text-center margin-top>
-                <button type="submit" block ion-button color="secondary">
-                  SIGN IN
+              <ion-list no-line>
+                <ion-item>
+                  <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+                </ion-item>
+                <div class="spacer" style="height:10px;" id="login-spacer2"></div>
+                <ion-item>
+                  <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+                </ion-item>
+                <div class="spacer" style="height:12px;" id="login-spacer2"></div>
+                <div class="spacer" style="height:10px;" id="login-spacer2"></div>
+                <button type="submit" ion-button round color="energized" block icon-left style="font-weight:500;color:#ffffff;">
+                  <ion-icon ios="ios-log-in" md="md-log-in"></ion-icon>
+                  Login
                 </button>
-              </div>
+              </ion-list>
             </form>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col>
-            <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-          </ion-col>
-        </ion-row>
-    </ion-grid>
+        
+            <div class="spacer" style="height:10px;" id="login-spacer2"></div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
